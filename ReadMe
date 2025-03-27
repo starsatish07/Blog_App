@@ -1,0 +1,131 @@
+1.install npm init.
+     The npm init command is used to create a package.json file, which is essential for any Node.js project. The package.json file stores important metadata about the project, including dependencies, scripts, and configurations.
+2.Make file index.js
+3.Install the express -npm i express.
+        The command npm i express (or npm install express) is used to install the Express.js framework in a Node.js project.  
+
+4.Make the Folder -routes,models,controllers,views.     
+
+5.install the EJS- npm i ejs.
+         The command npm i express (or npm install express) is used to install the Express.js framework in a Node.js project.
+         EJS is a templating engine for Node.js that allows you to generate dynamic HTML using JavaScript. It is often used with Express.js to render views.
+
+6.Then setup the index.js write code. make the server code.
+
+7.inside the views folder create file home.ejs and create a folder inside the views name partials and make file head.ejs.
+
+8.create a file in side a models- user.js and then Install mongoose: npm i mongoose.and Make schema.
+
+9.in user.js file : ADD Password hashing with salt is a technique used to securely store passwords by adding a random value (salt) before hashing. This prevents attackers from using precomputed attacks (like Rainbow Tables) to crack passwords.
+
+10. role: {
+    type: String,  // Defines 'role' as a String data type
+    enum: ["USER", "ADMIN"],  // Restricts the value to either "USER" or "ADMIN"
+    default: "USER",  // Sets the default value as "USER" if no value is provided
+      }
+
+:type: String → Specifies that role must be a string.
+enum: ["USER", "ADMIN"] → Limits the allowed values to only "USER" or "ADMIN".
+If someone tries to set role: "MODERATOR", MongoDB will reject it.
+default: "USER" → If no value is provided for role, it will automatically be set to "USER".
+
+11.import crypto hash node.js it is builtend pagaes.
+
+12.make the file inside the routes-user.js
+13.make the file in side the views signup page
+
+14.connect the mongodb to sever in the file index.js. by importing mongoose in index.js and mongoose.connect(mongodb://127.0.0.1.27017/blogify);
+
+15.inside route make file user.js
+to create app.post("/signup",(req,res)=>{
+
+})
+then add the middleware app.use(express.urlencloded({extended:false})) for takinf data from form.
+
+16.make app.post("/signin",(req,res)=>{
+
+}) mongoose vitual setters.
+   In Mongoose, a virtual function (also called a virtual property) allows you to create computed fields that do not get stored in the MongoDB database. These fields are derived from existing schema fields but are only available when you fetch the document.
+   
+   userSchema.static("matchPassword",async function(){
+
+   }This code defines a static method on the userSchema called matchPassword. It is used to authenticate a user by checking if the provided email and password match the stored credentials.
+
+17.Install the jsonwebtoken-npm i jsonwebtoken.
+
+18.Make the folder name services and then create file name authentication to write code for authentication.
+Create a payload . 
+       payload is the actual data being sent or received in a request or response. It is the important part of the message, excluding extra details like headers or metadata.
+19.generate token.
+
+20.inside the nav.js file condition rendering happen.  show the error when wrong password enter .iN ejs formate
+
+21.Create a folder name Middleware and inside make file name authentication.
+Install the cookie parser-nmp i cookie parser
+   cookie-parser is a middleware for Express.js that helps parse cookies from incoming HTTP requests. It makes it easier to read and manage cookies in a Node.js web application.
+
+22.  import the cookie-parser in the index.js file and  
+   
+23.In nav.ejs to condition 
+rendering setup if the user is 
+signin show Home page if not then first signup create account .
+
+24.make the logout functionality
+ inside the  router  user.js file to set up code And setup the add the link logout inside the nav.ejs.
+
+25.make the file inside the models name blog.js and setup  the blog Schema
+setup inside the blog.js.
+
+26.Make the file name addBlog.ejs inside the views folder.
+   Making form and making route for this form .
+   Create a file Name blog.js inside the routes.
+   this blog.js ko registration bhi kar na ho ga inside index.js file me
+27.setup form fileupload,title,body and submit button in side the blog.ejs.
+28.   And then save the Blog to database:
+      in the coverImage used to file to save image 
+      then Used:Multer:npm i multer
+            Multer, a middleware for handling multipart/form-data, 
+            primarily used for file uploads in Node.js.
+           * Multer is used to handle file uploads in an Express app.
+       * It stores files in memory or on disk before passing them to the request handler.
+     *  It works well with form submissions that contain file inputs.
+29. Make the folder inside the public to store the Images of according to current user 
+    name: uploads     
+    Import the multer in blog.js and setup code now.
+     and also import path package for resolve the paths.
+     Do'nt forget add the addBlog.ejs form add  enctype="multipart/form-data" and 
+     then inside the file blog.js router.post me add karo upload.single("coverImage").
+
+30.First require all blog then import blog from model in the index.js file me after that render allBlog to home page from mongodb.
+
+31.Make the card inside the home.ejs file to show dynamic blog data in card form.
+
+32.To server the image from public folder used the middleware used in the index.js file:
+ app.use(express.static(path.resolve('./public',static)));
+
+ 33.Make the route form get data in blog.js file me.
+ 34.Show the data in frontend part in the blog.ejs and setup the code in blog.ejs.
+
+ 35.Setup the  post to whom is create a post with name imgage show in post cards.Inside the routes folder and insise the blog.js file in the router.get me .populate("createdBy).
+ ERROR ref user model?
+
+33.Comment ke liye  code setup karenge
+make file inside the mmodels name comment.js
+make the commentSchema
+
+34.for making comment routes inside the blog.js handle the routes
+and Make the form in frontend side in blog.ejs file.
+ 
+ 35.If the user in Login then comment feacture apply by apply condition rendering form in blog.ejs setup
+  36.Setup to fetch all comment in blog.ej routes folder
+  spreade all comment into frontend part inside blog.ejs setup.
+
+
+
+
+
+
+
+
+
+

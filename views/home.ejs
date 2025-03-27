@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('partials/head') %>
+   <title>Home Page</title>
+   <style>
+      /* Ensure images have a fixed height while maintaining aspect ratio */
+      .card-img-top {
+          height: 200px; /* Set a fixed height */
+          object-fit: cover; /* Ensures images are cropped to fit */
+      }
+
+      /* Make all cards the same height */
+      .card {
+          height: 100%; /* Ensures all cards have equal height */
+          display: flex;
+          flex-direction: column;
+      }
+
+      /* Ensure card body expands to fill remaining space */
+      .card-body {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; /* Aligns the button to the bottom */
+      }
+
+      /* Align button to the left & set width */
+      .card-body .btn {
+          align-self: flex-start; /* Aligns button to the left */
+          width: 120px; /* Set fixed width */
+          text-align: center; /* Centers text inside the button */
+      }
+   </style>
+</head>
+<body>
+    <%- include('partials/nav') %> 
+
+    <div class="container mt-3">
+        <div class="row row-cols-1 row-cols-md-4 g-4">  
+            <% blogs.forEach(blog => { %>
+                <div class="col">
+                    <div class="card">
+                        <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="Cover Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= blog.title %></h5>
+                            <a href="/blog/<%= blog._id %>" class="btn btn-primary rounded-pill">View</a>
+                        </div>
+                    </div>
+                </div>  
+            <% }) %>
+        </div> 
+    </div>
+
+    <%- include('partials/scripts') %>  
+</body>
+</html>  
